@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>CutList - Drag Drop Mockup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .draggable{cursor:grab;user-select:none}
+    .draggable:active{cursor:grabbing}
+    .drop-zone{transition:all 0.2s}
+    .drop-zone.drag-over{background:#D1FAE5!important;border-color:#10B981!important}
+    .part-item{transition:transform 0.15s}
+    .part-item:hover{transform:scale(1.02);box-shadow:0 4px 12px rgba(0,0,0,0.15)}
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  
+  <header class="bg-violet-900 text-white px-6 py-4 flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <h1 class="text-xl font-bold">CutList Optimizer</h1>
+      <span class="text-violet-300 text-sm">Handmatige herverdeling - MOCKUP</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="px-4 py-2 bg-violet-700 rounded text-sm">Ongedaan maken</button>
+      <button class="px-4 py-2 bg-teal-500 rounded text-sm">Opslaan</button>
+    </div>
+  </header>
+
+  <div class="bg-white border-b px-6 py-3">
+    <span class="text-sm text-gray-600"><strong>Instructie:</strong> Sleep onderdelen tussen platen of naar parkeerplaats</span>
+  </div>
+
+  <main class="p-6">
+    
+    <div class="mb-6">
+      <h2 class="text-sm font-semibold text-gray-700 mb-2">Parkeerplaats (tijdelijk parkeren)</h2>
+      <div id="parking" class="drop-zone bg-amber-50 border-2 border-dashed border-amber-300 rounded-lg p-4 min-h-20 flex flex-wrap gap-3">
+        <div class="part-item draggable bg-amber-100 border border-amber-400 rounded p-3 text-center text-xs">
+          <div class="font-bold text-amber-800">#6</div>
+          <div class="text-amber-700">Achterwand</div>
+          <div class="text-amber-500">780x600</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-6 overflow-x-auto pb-4">
+      
+      <div class="flex-shrink-0">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-violet-700">Plaat 1 - Multiplex 18mm</span>
+          <span class="text-xs px-2 py-1 bg-teal-100 text-teal-700 rounded">78.5%</span>
+        </div>
+        <div id="plaat-1" class="drop-zone bg-white border-2 border-gray-300 rounded-lg p-2 relative" style="width:320px;height:200px">
+          <div class="part-item draggable absolute bg-blue-100 border border-blue-400 rounded flex items-center justify-center text-xs" style="left:8px;top:8px;width:140px;height:80px">
+            <div class="text-center"><div class="font-bold">#1</div><div>Zijwand L</div><div class="text-blue-500">800x400</div></div>
+          </div>
+          <div class="part-item draggable absolute bg-green-100 border border-green-400 rounded flex items-center justify-center text-xs" style="left:156px;top:8px;width:140px;height:80px">
+            <div class="text-center"><div class="font-bold">#2</div><div>Zijwand R</div><div class="text-green-500">800x400</div></div>
+          </div>
+          <div class="part-item draggable absolute bg-purple-100 border border-purple-400 rounded flex items-center justify-center text-xs" style="left:8px;top:96px;width:180px;height:90px">
+            <div class="text-center"><div class="font-bold">#3</div><div>Bodem</div><div class="text-purple-500">760x500</div></div>
+          </div>
+        </div>
+        <div class="mt-2 text-xs text-gray-500 text-center">2440 x 1220 mm</div>
+      </div>
+
+      <div class="flex-shrink-0">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-violet-700">Plaat 2 - Multiplex 18mm</span>
+          <span class="text-xs px-2 py-1 bg-amber-100 text-amber-700 rounded">62.3%</span>
+        </div>
+        <div id="plaat-2" class="drop-zone bg-white border-2 border-gray-300 rounded-lg p-2 relative" style="width:320px;height:200px">
+          <div class="part-item draggable absolute bg-orange-100 border border-orange-400 rounded flex items-center justify-center text-xs" style="left:8px;top:8px;width:160px;height:100px">
+            <div class="text-center"><div class="font-bold">#4</div><div>Bovenkant</div><div class="text-orange-500">800x520</div></div>
+          </div>
+          <div class="part-item draggable absolute bg-pink-100 border border-pink-400 rounded flex items-center justify-center text-xs" style="left:176px;top:8px;width:120px;height:70px">
+            <div class="text-center"><div class="font-bold">#5</div><div>Plank 1</div><div class="text-pink-500">740x380</div></div>
+          </div>
+        </div>
+        <div class="mt-2 text-xs text-gray-500 text-center">2440 x 1220 mm</div>
+      </div>
+
+      <div class="flex-shrink-0">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-sm font-semibold text-violet-700">Plaat 3 - Leeg</span>
+          <span class="text-xs px-2 py-1 bg-gray-100 text-gray-500 rounded">0%</span>
+        </div>
+        <div id="plaat-3" class="drop-zone bg-gray-50 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center" style="width:320px;height:200px">
+          <span class="text-gray-400 text-sm">Sleep hierheen</span>
+        </div>
+        <div class="mt-2 text-xs text-gray-500 text-center">2440 x 1220 mm</div>
+      </div>
+
+      <div class="flex-shrink-0 flex items-center">
+        <button class="w-40 h-48 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-gray-400 hover:border-violet-400 hover:text-violet-500">
+          <span class="text-4xl mb-2">+</span>
+          <span class="text-sm">Plaat toevoegen</span>
+        </button>
+      </div>
+      
+    </div>
+
+    <div class="mt-6 bg-white rounded-lg border p-4">
+      <h3 class="text-sm font-semibold text-violet-700 mb-3">Stuklijst overzicht</h3>
+      <div class="grid grid-cols-6 gap-2 text-xs">
+        <div class="p-2 bg-blue-50 rounded border border-blue-200"><strong>#1</strong> Zijwand L <span class="text-gray-500">→ Plaat 1</span></div>
+        <div class="p-2 bg-green-50 rounded border border-green-200"><strong>#2</strong> Zijwand R <span class="text-gray-500">→ Plaat 1</span></div>
+        <div class="p-2 bg-purple-50 rounded border border-purple-200"><strong>#3</strong> Bodem <span class="text-gray-500">→ Plaat 1</span></div>
+        <div class="p-2 bg-orange-50 rounded border border-orange-200"><strong>#4</strong> Bovenkant <span class="text-gray-500">→ Plaat 2</span></div>
+        <div class="p-2 bg-pink-50 rounded border border-pink-200"><strong>#5</strong> Plank 1 <span class="text-gray-500">→ Plaat 2</span></div>
+        <div class="p-2 bg-amber-50 rounded border border-amber-300"><strong>#6</strong> Achterwand <span class="text-amber-600">→ Geparkeerd</span></div>
+      </div>
+    </div>
+
+  </main>
+
+  <div class="fixed right-4 top-24 w-56 bg-white rounded-lg shadow-lg border p-4">
+    <h3 class="text-sm font-semibold text-violet-700 mb-3">Geselecteerd</h3>
+    <div class="space-y-1 text-sm">
+      <div><span class="text-gray-500">Naam:</span> <strong>Zijwand L</strong></div>
+      <div><span class="text-gray-500">Afmeting:</span> 800 x 400</div>
+      <div><span class="text-gray-500">Plaat:</span> Plaat 1</div>
+    </div>
+    <hr class="my-3">
+    <div class="space-y-2 text-xs">
+      <button class="w-full p-2 bg-gray-100 hover:bg-gray-200 rounded text-left">90° roteren</button>
+      <button class="w-full p-2 bg-amber-100 hover:bg-amber-200 text-amber-700 rounded text-left">Naar parkeerplaats</button>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.draggable').forEach(el=>{
+      el.draggable=true;
+      el.addEventListener('dragstart',e=>e.target.style.opacity='0.5');
+      el.addEventListener('dragend',e=>e.target.style.opacity='1');
+    });
+    document.querySelectorAll('.drop-zone').forEach(zone=>{
+      zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('drag-over')});
+      zone.addEventListener('dragleave',e=>zone.classList.remove('drag-over'));
+      zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('drag-over');alert('Verplaatst naar: '+zone.id)});
+    });
+  </script>
+</body>
+</html>

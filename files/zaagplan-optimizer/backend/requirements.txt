@@ -1,0 +1,17 @@
+# Zaagplan Optimizer - Python Backend Dependencies
+# Install: pip install -r requirements.txt
+
+# Web framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.0
+
+# Optimization
+ortools>=9.8.0
+
+# 2D Nesting (voor toekomstige NFP support)
+# Shapely>=2.0.0
+# numpy>=1.24.0
+
+# Development
+python-multipart>=0.0.6
